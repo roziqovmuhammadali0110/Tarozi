@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#telPages {
+  background-image: url("https://cdn1.img.sputniknews.uz/img/41/08/410816_0:115:3076:2048_1920x0_80_0_0_2de63a00227156dc2d853d30fcf119bf.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#codePage {
+  background-image: url("https://moit.gov.vn/upload/2005517/fck/files/XUAT_KHAU_THAN_4b9aa.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
