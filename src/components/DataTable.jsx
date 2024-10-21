@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
-import KeepMountedModal from "./KeepMountedModal"; // Modal komponentini import qiling
+import KeepMountedModal from "./KeepMountedModal";
+
+// Rasmlarni import qiling
+import mashinaKomp2 from "../assets/img/mashinaKomp2.jpg";
+import mashianOrqaT2 from "../assets/img/mashianOrqaT2.jpg";
+import mashinNumberi2 from "../assets/img/mashinNumberi2.jpg";
+import mashinaKomputer1 from "../assets/img/mashinaKomputer1.jpg";
+import mashinaOrqaT1 from "../assets/img/mashinaOrqaT1.jpg";
+import mashinaNumberi1 from "../assets/img/mashinaNumberi1.jpg";
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
@@ -32,11 +40,7 @@ const rows = [
     cargoWeight: "4 t",
     driverName: "Jabborov Abdumalik",
     age: 35,
-    images: [
-      "/src/assets/img/mashinaKomp2.jpg",
-      "/src/assets/img/mashianOrqaT2.jpg",
-      "/src/assets/img/mashinNumberi2.jpg"
-    ] // Rasm manzillari
+    images: [mashinaKomp2, mashianOrqaT2, mashinNumberi2] // Rasm manzillari
   },
   {
     id: 2,
@@ -46,11 +50,7 @@ const rows = [
     cargoWeight: "4 t",
     driverName: "Jabborov Abdumalik",
     age: 42,
-    images: [
-      "/src/assets/img/mashinaKomp2.jpg",
-      "/src/assets/img/mashianOrqaT2.jpg",
-      "/src/assets/img/mashinNumberi2.jpg"
-    ]
+    images: [mashinaKomp2, mashianOrqaT2, mashinNumberi2]
   },
   {
     id: 3,
@@ -60,11 +60,7 @@ const rows = [
     cargoWeight: "4 t",
     driverName: "Jabborov Abdumalik",
     age: 45,
-    images: [
-      "/src/assets/img/mashinaKomputer1.jpg",
-      "/src/assets/img/mashinaOrqaT1.jpg",
-      "/src/assets/img/mashinaNumberi1.jpg"
-    ]
+    images: [mashinaKomputer1, mashinaOrqaT1, mashinaNumberi1]
   },
   {
     id: 4,
@@ -74,11 +70,7 @@ const rows = [
     cargoWeight: "4 t",
     driverName: "Jabborov Abdumalik",
     age: 35,
-    images: [
-      "/src/assets/img/mashinaKomp2.jpg",
-      "/src/assets/img/mashianOrqaT2.jpg",
-      "/src/assets/img/mashinNumberi2.jpg"
-    ] // Rasm manzillari
+    images: [mashinaKomp2, mashianOrqaT2, mashinNumberi2] // Rasm manzillari
   },
   {
     id: 5,
@@ -88,11 +80,7 @@ const rows = [
     cargoWeight: "4 t",
     driverName: "Jabborov Abdumalik",
     age: 42,
-    images: [
-      "/src/assets/img/mashinaKomp2.jpg",
-      "/src/assets/img/mashianOrqaT2.jpg",
-      "/src/assets/img/mashinNumberi2.jpg"
-    ]
+    images: [mashinaKomp2, mashianOrqaT2, mashinNumberi2]
   },
   {
     id: 6,
@@ -102,11 +90,7 @@ const rows = [
     cargoWeight: "4 t",
     driverName: "Jabborov Abdumalik",
     age: 45,
-    images: [
-      "/src/assets/img/mashinaKomputer1.jpg",
-      "/src/assets/img/mashinaOrqaT1.jpg",
-      "/src/assets/img/mashinaNumberi1.jpg"
-    ]
+    images: [mashinaKomputer1, mashinaOrqaT1, mashinaNumberi1]
   }
   // Qo'shimcha qatorlar...
 ];
