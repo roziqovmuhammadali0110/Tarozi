@@ -1,11 +1,13 @@
+import { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
+import KeepMountedModal from "./KeepMountedModal"; // Modal komponentini import qiling
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
-  { field: "carNumber", headerName: "CarNumber", width: 130 },
+  { field: "carNumber", headerName: "Car Number", width: 130 },
   { field: "entryTime", headerName: "Entry Time", width: 130 },
-  { field: "exitTime", headerName: "ExitTime", width: 130 },
+  { field: "exitTime", headerName: "Exit Time", width: 130 },
   {
     field: "age",
     headerName: "Age",
@@ -92,21 +94,47 @@ const rows = [
     driverName: "Jabborov Abdumalik",
     age: 65
   }
+  // Boshqa qatordan ham kiritilgan...
 ];
 
 const paginationModel = { page: 0, pageSize: 5 };
 
 export default function DataTable() {
+  const [open, setOpen] = useState(false);
+  const [selectedRow, setSelectedRow] = useState(null);
+
+  const handleRowClick = (params) => {
+    setSelectedRow(params.row); // Tanlangan qatorni saqlaymiz
+    setOpen(true); // Modalni ochamiz
+  };
+
+  const handleClose = () => {
+    setOpen(false); // Modalni yopamiz
+    setSelectedRow(null); // Modal yopilganda tanlangan qatorni tozalaymiz
+  };
+
   return (
-    <Paper sx={{ height: 400, width: "100%" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{ pagination: { paginationModel } }}
-        pageSizeOptions={[5, 10]}
-        checkboxSelection
-        sx={{ border: 0 }}
-      />
-    </Paper>
+    <div>
+      <Paper sx={{ height: 400, width: "100%" }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          initialState={{ pagination: { paginationModel } }}
+          pageSizeOptions={[5, 10]}
+          checkboxSelection
+          sx={{ border: 0 }}
+          onRowClick={handleRowClick} // Qator ustiga bosilganda ishga tushadigan funksiya
+        />
+      </Paper>
+
+      {/* Modalni chaqiramiz */}
+      {selectedRow && (
+        <KeepMountedModal
+          open={open}
+          onClose={handleClose}
+          rowData={selectedRow} // Tanlangan qator ma'lumotlarini modalga uzatamiz
+        />
+      )}
+    </div>
   );
 }
