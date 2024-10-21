@@ -35,7 +35,7 @@ const KeepMountedModal = ({ open, onClose, rowData }) => {
           <div className="flex flex-wrap gap-3">
             {rowData.images.map((imgSrc, index) => (
               <img
-                className="mt-2 rounded-md w-[150px]"
+                className="mt-2 rounded-md w-[150px] sm:w-[120px] md:w-[150px]"
                 key={index}
                 src={imgSrc}
                 alt={`Image ${index + 1}`}
