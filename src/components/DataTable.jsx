@@ -38,23 +38,23 @@ const rows = [
     exitTime: "12:10",
     entryTime: "10:00",
     cargoWeight: "4 t",
-    driverName: "Jabborov Abdumalik",
+    driverName: "Roziqov Muhammadali",
     age: 35,
     images: [mashinaKomp2, mashianOrqaT2, mashinNumberi2] // Rasm manzillari
   },
   {
     id: 2,
-    carNumber: "01 H 123 AB",
+    carNumber: "01 H 103 AB",
     exitTime: "08:00",
     entryTime: "07:00",
     cargoWeight: "4 t",
-    driverName: "Jabborov Abdumalik",
+    driverName: "Jabborov Abbos",
     age: 42,
     images: [mashinaKomp2, mashianOrqaT2, mashinNumberi2]
   },
   {
     id: 3,
-    carNumber: "01 H 123 AB",
+    carNumber: "01 H 129 AB",
     exitTime: "09:30",
     entryTime: "8:40",
     cargoWeight: "4 t",
@@ -64,17 +64,17 @@ const rows = [
   },
   {
     id: 4,
-    carNumber: "01 H 123 AB",
+    carNumber: "01 H 213 AB",
     exitTime: "12:10",
     entryTime: "10:00",
     cargoWeight: "4 t",
-    driverName: "Jabborov Abdumalik",
+    driverName: "Do'smatov Abdumalik",
     age: 35,
     images: [mashinaKomp2, mashianOrqaT2, mashinNumberi2] // Rasm manzillari
   },
   {
     id: 5,
-    carNumber: "01 H 123 AB",
+    carNumber: "01 H 189 AB",
     exitTime: "08:00",
     entryTime: "07:00",
     cargoWeight: "4 t",
@@ -84,7 +84,7 @@ const rows = [
   },
   {
     id: 6,
-    carNumber: "01 H 123 AB",
+    carNumber: "01 H 683 AB",
     exitTime: "09:30",
     entryTime: "8:40",
     cargoWeight: "4 t",
