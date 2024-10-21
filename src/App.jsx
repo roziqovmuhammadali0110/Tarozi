@@ -5,13 +5,13 @@ import CodePages from "./pages/CodePages";
 
 function App() {
   return (
-    <>
+    <div className="home w-screen h-screen">
       <Routes>
         <Route path="/" element={<TelPages />} />
         <Route path="/code" element={<CodePages />} />
         <Route path="/home" element={<Home />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

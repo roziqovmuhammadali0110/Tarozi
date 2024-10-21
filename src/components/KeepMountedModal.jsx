@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button"; // Tugma uchun import
 
 const KeepMountedModal = ({ open, onClose, rowData }) => {
   return (
@@ -35,13 +36,20 @@ const KeepMountedModal = ({ open, onClose, rowData }) => {
           <div className="flex flex-wrap gap-3">
             {rowData.images.map((imgSrc, index) => (
               <img
-                className="mt-2 rounded-md w-[150px] sm:w-[120px] md:w-[150px]"
+                className="mt-2 rounded-md w-[150px] sm:w-[100px] md:w-[150px]"
                 key={index}
                 src={imgSrc}
                 alt={`Image ${index + 1}`}
                 width={100}
               />
             ))}
+          </div>
+
+          {/* Modalni yopish uchun tugma */}
+          <div className="flex justify-end mt-4">
+            <Button variant="contained" onClick={onClose}>
+              Yopish
+            </Button>
           </div>
         </div>
       </Box>
