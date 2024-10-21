@@ -1,57 +1,50 @@
+import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  boxShadow: 24,
-  p: 4,
-  borderRadius: 2,
-  outline: "none"
-};
-
-export default function KeepMountedModal({ open, onClose, rowData }) {
+const KeepMountedModal = ({ open, onClose, rowData }) => {
   return (
     <Modal
       open={open}
       onClose={onClose}
-      aria-labelledby="modal-title"
-      aria-describedby="modal-description"
-      keepMounted>
-      <Box sx={style}>
-        {/* Yopish tugmasi yuqori o'ng burchakda */}
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500]
-          }}>
-          <CloseIcon />
-        </IconButton>
+      aria-labelledby="keep-mounted-modal-title"
+      aria-describedby="keep-mounted-modal-description">
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 4,
+          bgcolor: "background.paper",
+          borderRadius: 1,
+          outline: "none", // Modalning konturini olib tashlash
+          maxWidth: "500px", // Maximal kenglik
+          margin: "auto" // Markazlashtirish uchun
+        }}>
+        <div>
+          <h2 id="keep-mounted-modal-title">Car Details</h2>
+          <p>Car Number: {rowData.carNumber}</p>
+          <p>Entry Time: {rowData.entryTime}</p>
+          <p>Exit Time: {rowData.exitTime}</p>
+          <p>Driver Name: {rowData.driverName}</p>
+          <p>Age: {rowData.age}</p>
 
-        <Typography id="modal-title" variant="h6" component="h2">
-          Driver Information
-        </Typography>
-        <Typography id="modal-description" sx={{ mt: 2 }}>
-          Car Number: {rowData?.carNumber}
-        </Typography>
-        <Typography sx={{ mt: 2 }}>Entry Time: {rowData?.entryTime}</Typography>
-        <Typography sx={{ mt: 2 }}>Exit Time: {rowData?.exitTime}</Typography>
-        <Typography sx={{ mt: 2 }}>
-          Driver Name: {rowData?.driverName}
-        </Typography>
-        <Typography sx={{ mt: 2 }}>Age: {rowData?.age}</Typography>
+          {/* Rasmlar ko'rsatilmoqda */}
+          <div className="flex flex-wrap gap-3">
+            {rowData.images.map((imgSrc, index) => (
+              <img
+                className="mt-2 rounded-md w-[150px]"
+                key={index}
+                src={imgSrc}
+                alt={`Image ${index + 1}`}
+                width={100}
+              />
+            ))}
+          </div>
+        </div>
       </Box>
     </Modal>
   );
-}
+};
+
+export default KeepMountedModal;

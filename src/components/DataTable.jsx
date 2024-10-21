@@ -19,6 +19,7 @@ const columns = [
     headerName: "Driver Name",
     width: 160
   }
+  // Rasm maydoni olib tashlandi
 ];
 
 const rows = [
@@ -28,7 +29,12 @@ const rows = [
     exitTime: "12:10",
     entryTime: "10:00",
     driverName: "Jabborov Abdumalik",
-    age: 35
+    age: 35,
+    images: [
+      "/src/assets/image1.png",
+      "/src/assets/image2.png",
+      "/src/assets/image3.png"
+    ] // Rasm manzillari
   },
   {
     id: 2,
@@ -36,7 +42,12 @@ const rows = [
     exitTime: "08:00",
     entryTime: "07:00",
     driverName: "Jabborov Abdumalik",
-    age: 42
+    age: 42,
+    images: [
+      "/src/assets/image4.png",
+      "/src/assets/image5.png",
+      "/src/assets/image6.png"
+    ]
   },
   {
     id: 3,
@@ -44,57 +55,14 @@ const rows = [
     exitTime: "09:30",
     entryTime: "8:40",
     driverName: "Jabborov Abdumalik",
-    age: 45
-  },
-  {
-    id: 4,
-    carNumber: "01 H 123 AB",
-    exitTime: "14:00",
-    entryTime: "13:10",
-    driverName: "Jabborov Abdumalik",
-    age: 16
-  },
-  {
-    id: 5,
-    carNumber: "01 H 123 AB",
-    exitTime: "15:20",
-    entryTime: "14:30",
-    driverName: "Jabborov Abdumalik",
-    age: 21
-  },
-  {
-    id: 6,
-    carNumber: "01 H 123 AB",
-    exitTime: "12:10",
-    entryTime: "11:40",
-    driverName: "Jabborov Abdumalik",
-    age: 25
-  },
-  {
-    id: 7,
-    carNumber: "01 H 123 AB",
-    exitTime: "10:12",
-    entryTime: "09:20",
-    driverName: "Jabborov Abdumalik",
-    age: 44
-  },
-  {
-    id: 8,
-    carNumber: "01 H 123 AB",
-    exitTime: "13:20",
-    entryTime: "12:35",
-    driverName: "Jabborov Abdumalik",
-    age: 36
-  },
-  {
-    id: 9,
-    carNumber: "01 H 123 AB",
-    exitTime: "16:20",
-    entryTime: "15:35",
-    driverName: "Jabborov Abdumalik",
-    age: 65
+    age: 45,
+    images: [
+      "/src/assets/img/mashinaKomputer1.jpg",
+      "/src/assets/img/mashinaOrqaT1.jpg",
+      "/src/assets/img/mashinaNumberi1.jpg"
+    ]
   }
-  // Boshqa qatordan ham kiritilgan...
+  // Qo'shimcha qatorlar...
 ];
 
 const paginationModel = { page: 0, pageSize: 5 };
@@ -121,7 +89,6 @@ export default function DataTable() {
           columns={columns}
           initialState={{ pagination: { paginationModel } }}
           pageSizeOptions={[5, 10]}
-          checkboxSelection
           sx={{ border: 0 }}
           onRowClick={handleRowClick} // Qator ustiga bosilganda ishga tushadigan funksiya
         />
