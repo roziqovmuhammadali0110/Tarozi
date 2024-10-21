@@ -5,7 +5,7 @@ import CodePages from "./pages/CodePages";
 
 function App() {
   return (
-    <div className="home w-screen h-screen">
+    <div>
       <Routes>
         <Route path="/" element={<TelPages />} />
         <Route path="/code" element={<CodePages />} />

@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button"; // Tugma uchun import
+import CloseIcon from "@mui/icons-material/Close";
 
 const KeepMountedModal = ({ open, onClose, rowData }) => {
   return (
@@ -17,20 +18,34 @@ const KeepMountedModal = ({ open, onClose, rowData }) => {
           left: "50%",
           transform: "translate(-50%, -50%)", // Markazlashtirish
           padding: 4,
+          paddingTop: 1,
+          paddingBottom: 2,
           bgcolor: "background.paper",
-          borderRadius: 1,
+          borderRadius: 2,
           outline: "none", // Modalning konturini olib tashlash
           maxWidth: "500px", // Maximal kenglik
           width: "90%" // Mobil qurilmalar uchun kenglikni moslashtirish
         }}>
         <div>
-          <h2 id="keep-mounted-modal-title">Car Details</h2>
-          <p>Car Number: {rowData.carNumber}</p>
-          <p>Entry Time: {rowData.entryTime}</p>
-          <p>Exit Time: {rowData.exitTime}</p>
-          <p>Cargo weight: {rowData.cargoWeight}</p>
-          <p>Driver Name: {rowData.driverName}</p>
-          <p>Age: {rowData.age}</p>
+          <div className="flex justify-end mt-1">
+            <Button
+              variant="contained"
+              style={{ borderRadius: "10px", width: "40px" }}
+              onClick={onClose}>
+              <CloseIcon />
+            </Button>
+          </div>
+          <h2
+            id="keep-mounted-modal-title"
+            className="font-semibold text-[18px] text-slate-900">
+            Car Details
+          </h2>
+          <p className="font-medium">Car Number: {rowData.carNumber}</p>
+          <p className="font-medium">Entry Time: {rowData.entryTime}</p>
+          <p className="font-medium">Exit Time: {rowData.exitTime}</p>
+          <p className="font-medium">Cargo weight: {rowData.cargoWeight}</p>
+          <p className="font-medium">Driver Name: {rowData.driverName}</p>
+          <p className="font-medium">Age: {rowData.age}</p>
 
           {/* Rasmlar ko'rsatilmoqda */}
           <div className="flex flex-wrap gap-3">
@@ -46,11 +61,6 @@ const KeepMountedModal = ({ open, onClose, rowData }) => {
           </div>
 
           {/* Modalni yopish uchun tugma */}
-          <div className="flex justify-end mt-4">
-            <Button variant="contained" onClick={onClose}>
-              Yopish
-            </Button>
-          </div>
         </div>
       </Box>
     </Modal>
