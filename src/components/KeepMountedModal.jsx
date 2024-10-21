@@ -11,21 +11,23 @@ const KeepMountedModal = ({ open, onClose, rowData }) => {
       aria-describedby="keep-mounted-modal-description">
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)", // Markazlashtirish
           padding: 4,
           bgcolor: "background.paper",
           borderRadius: 1,
           outline: "none", // Modalning konturini olib tashlash
           maxWidth: "500px", // Maximal kenglik
-          margin: "auto" // Markazlashtirish uchun
+          width: "90%" // Mobil qurilmalar uchun kenglikni moslashtirish
         }}>
         <div>
           <h2 id="keep-mounted-modal-title">Car Details</h2>
           <p>Car Number: {rowData.carNumber}</p>
           <p>Entry Time: {rowData.entryTime}</p>
           <p>Exit Time: {rowData.exitTime}</p>
+          <p>Cargo weight: {rowData.cargoWeight}</p>
           <p>Driver Name: {rowData.driverName}</p>
           <p>Age: {rowData.age}</p>
 

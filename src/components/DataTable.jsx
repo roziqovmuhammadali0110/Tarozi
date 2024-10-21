@@ -8,6 +8,7 @@ const columns = [
   { field: "carNumber", headerName: "Car Number", width: 130 },
   { field: "entryTime", headerName: "Entry Time", width: 130 },
   { field: "exitTime", headerName: "Exit Time", width: 130 },
+  { field: "cargoWeight", headerName: "Cargo weight", width: 130 },
   {
     field: "age",
     headerName: "Age",
@@ -28,12 +29,13 @@ const rows = [
     carNumber: "01 H 123 AB",
     exitTime: "12:10",
     entryTime: "10:00",
+    cargoWeight: "4 t",
     driverName: "Jabborov Abdumalik",
     age: 35,
     images: [
-      "/src/assets/image1.png",
-      "/src/assets/image2.png",
-      "/src/assets/image3.png"
+      "/src/assets/img/mashinaKomp2.jpg",
+      "/src/assets/img/mashianOrqaT2.jpg",
+      "/src/assets/img/mashinNumberi2.jpg"
     ] // Rasm manzillari
   },
   {
@@ -41,12 +43,13 @@ const rows = [
     carNumber: "01 H 123 AB",
     exitTime: "08:00",
     entryTime: "07:00",
+    cargoWeight: "4 t",
     driverName: "Jabborov Abdumalik",
     age: 42,
     images: [
-      "/src/assets/image4.png",
-      "/src/assets/image5.png",
-      "/src/assets/image6.png"
+      "/src/assets/img/mashinaKomp2.jpg",
+      "/src/assets/img/mashianOrqaT2.jpg",
+      "/src/assets/img/mashinNumberi2.jpg"
     ]
   },
   {
@@ -54,6 +57,49 @@ const rows = [
     carNumber: "01 H 123 AB",
     exitTime: "09:30",
     entryTime: "8:40",
+    cargoWeight: "4 t",
+    driverName: "Jabborov Abdumalik",
+    age: 45,
+    images: [
+      "/src/assets/img/mashinaKomputer1.jpg",
+      "/src/assets/img/mashinaOrqaT1.jpg",
+      "/src/assets/img/mashinaNumberi1.jpg"
+    ]
+  },
+  {
+    id: 4,
+    carNumber: "01 H 123 AB",
+    exitTime: "12:10",
+    entryTime: "10:00",
+    cargoWeight: "4 t",
+    driverName: "Jabborov Abdumalik",
+    age: 35,
+    images: [
+      "/src/assets/img/mashinaKomp2.jpg",
+      "/src/assets/img/mashianOrqaT2.jpg",
+      "/src/assets/img/mashinNumberi2.jpg"
+    ] // Rasm manzillari
+  },
+  {
+    id: 5,
+    carNumber: "01 H 123 AB",
+    exitTime: "08:00",
+    entryTime: "07:00",
+    cargoWeight: "4 t",
+    driverName: "Jabborov Abdumalik",
+    age: 42,
+    images: [
+      "/src/assets/img/mashinaKomp2.jpg",
+      "/src/assets/img/mashianOrqaT2.jpg",
+      "/src/assets/img/mashinNumberi2.jpg"
+    ]
+  },
+  {
+    id: 6,
+    carNumber: "01 H 123 AB",
+    exitTime: "09:30",
+    entryTime: "8:40",
+    cargoWeight: "4 t",
     driverName: "Jabborov Abdumalik",
     age: 45,
     images: [
