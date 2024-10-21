@@ -4,8 +4,8 @@ import Paper from "@mui/material/Paper";
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
   { field: "carNumber", headerName: "CarNumber", width: 130 },
-  { field: "firstName", headerName: "First name", width: 130 },
-  { field: "lastName", headerName: "Last name", width: 130 },
+  { field: "entryTime", headerName: "Entry Time", width: 130 },
+  { field: "exitTime", headerName: "ExitTime", width: 130 },
   {
     field: "age",
     headerName: "Age",
@@ -13,12 +13,9 @@ const columns = [
     width: 90
   },
   {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 160,
-    valueGetter: (value, row) => `${row.firstName || ""} ${row.lastName || ""}`
+    field: "driverName",
+    headerName: "Driver Name",
+    width: 160
   }
 ];
 
@@ -26,64 +23,73 @@ const rows = [
   {
     id: 1,
     carNumber: "01 H 123 AB",
-    lastName: "Snow",
-    firstName: "Jon",
+    exitTime: "12:10",
+    entryTime: "10:00",
+    driverName: "Jabborov Abdumalik",
     age: 35
   },
   {
     id: 2,
     carNumber: "01 H 123 AB",
-    lastName: "Lannister",
-    firstName: "Cersei",
+    exitTime: "08:00",
+    entryTime: "07:00",
+    driverName: "Jabborov Abdumalik",
     age: 42
   },
   {
     id: 3,
     carNumber: "01 H 123 AB",
-    lastName: "Lannister",
-    firstName: "Jaime",
+    exitTime: "09:30",
+    entryTime: "8:40",
+    driverName: "Jabborov Abdumalik",
     age: 45
   },
   {
     id: 4,
     carNumber: "01 H 123 AB",
-    lastName: "Stark",
-    firstName: "Arya",
+    exitTime: "14:00",
+    entryTime: "13:10",
+    driverName: "Jabborov Abdumalik",
     age: 16
   },
   {
     id: 5,
     carNumber: "01 H 123 AB",
-    lastName: "Targaryen",
-    firstName: "Daenerys",
-    age: null
+    exitTime: "15:20",
+    entryTime: "14:30",
+    driverName: "Jabborov Abdumalik",
+    age: 21
   },
   {
     id: 6,
     carNumber: "01 H 123 AB",
-    lastName: "Melisandre",
-    firstName: null,
-    age: 150
+    exitTime: "12:10",
+    entryTime: "11:40",
+    driverName: "Jabborov Abdumalik",
+    age: 25
   },
   {
     id: 7,
     carNumber: "01 H 123 AB",
-    lastName: "Clifford",
-    firstName: "Ferrara",
+    exitTime: "10:12",
+    entryTime: "09:20",
+    driverName: "Jabborov Abdumalik",
     age: 44
   },
   {
     id: 8,
     carNumber: "01 H 123 AB",
-    lastName: "Frances",
-    firstName: "Rossini",
+    exitTime: "13:20",
+    entryTime: "12:35",
+    driverName: "Jabborov Abdumalik",
     age: 36
   },
   {
     id: 9,
     carNumber: "01 H 123 AB",
-    lastName: "Roxie",
-    firstName: "Harvey",
+    exitTime: "16:20",
+    entryTime: "15:35",
+    driverName: "Jabborov Abdumalik",
     age: 65
   }
 ];

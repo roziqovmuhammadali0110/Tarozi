@@ -1,74 +1,116 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const TelPages = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [isPhoneValid, setIsPhoneValid] = useState(false);
-  const navigate = useNavigate();
-
-  // LocalStorage-da telefon raqamning mavjudligini tekshirish va yo'naltirish
-  // useEffect(() => {
-  //   const savedPhoneNumber = localStorage.getItem("phoneNumber");
-  //   if (savedPhoneNumber) {
-  //     navigate("/code"); // Telefon raqam saqlangan bo'lsa, "/code" sahifasiga yo'naltiramiz
-  //   }
-  // }, [navigate]);
-
-  const handlePhoneChange = (e) => {
-    const value = e.target.value;
-    setPhoneNumber(value);
-
-    // Telefon raqam formatini tekshirish (10 yoki 12 raqam, faqat raqamlar)
-    const phoneRegex = /^\+?\d{10,12}$/;
-    setIsPhoneValid(phoneRegex.test(value));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Agar telefon raqam to'g'ri bo'lsa
-    if (isPhoneValid) {
-      // Telefon raqamni localStorage-ga saqlash
-      // localStorage.setItem("phoneNumber", phoneNumber);
-
-      // Kod kiritish sahifasiga o'tkazish
-      navigate("/code");
-    }
-  };
+function TelPages() {
+  const [isLogin, setIsLogin] = useState(true);
 
   return (
     <div
-      id="telPages"
-      className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold mb-4 text-white">
-        Telefon raqam yordamida kodni olish
-      </h1>
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
-        <div className="mb-4">
-          <input
-            type="tel"
-            placeholder="Telephone Number"
-            value={phoneNumber}
-            onChange={handlePhoneChange}
-            className="border border-gray-300 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
+      className="min-h-screen flex items-center justify-center bg-gray-100"
+      id="telPages">
+      <div className="bg-white p-8 rounded shadow-md w-96">
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          {isLogin ? "Login" : "Register"}
+        </h2>
+        {isLogin ? <LoginForm /> : <RegisterForm />}
+        <div className="text-center mt-4">
+          <button
+            className="text-blue-500"
+            onClick={() => setIsLogin(!isLogin)}>
+            {isLogin
+              ? "Don't have an account? Register"
+              : "Already have an account? Login"}
+          </button>
         </div>
-        <button
-          type="submit"
-          disabled={!isPhoneValid} // Agar raqam xato bo'lsa disable
-          className={`w-full p-2 rounded-md text-white ${
-            isPhoneValid
-              ? "bg-blue-500 hover:bg-blue-600"
-              : "bg-gray-400 cursor-not-allowed"
-          }`}>
-          Yuborish
-        </button>
-      </form>
+      </div>
     </div>
   );
-};
+}
+
+function LoginForm() {
+  const navigate = useNavigate(); // Sahifa o'tishini boshqarish
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Login muvaffaqiyatli bo'lsa, sahifani o'zgartiramiz
+    navigate("/code");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="mb-4">
+        <label className="block text-gray-700">Phone</label>
+        <input
+          type="text"
+          required
+          className="w-full px-3 py-2 border rounded-lg"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700">Password</label>
+        <input
+          type="password"
+          required
+          className="w-full px-3 py-2 border rounded-lg"
+        />
+      </div>
+      <button
+        type="submit"
+        className="w-full bg-slate-800  text-white py-2 rounded font-medium hover:bg-blue-600">
+        Login
+      </button>
+    </form>
+  );
+}
+
+function RegisterForm() {
+  const navigate = useNavigate(); // Sahifa o'tishini boshqarish
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Registratsiya muvaffaqiyatli bo'lsa, sahifani o'zgartiramiz
+    navigate("/code");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="mb-4">
+        <label className="block text-gray-700">Phone</label>
+        <input
+          type="text"
+          required
+          className="w-full px-3 py-2 border rounded-lg"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700">Email</label>
+        <input
+          type="email"
+          required
+          className="w-full px-3 py-2 border rounded-lg"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700">Username</label>
+        <input
+          type="text"
+          required
+          className="w-full px-3 py-2 border rounded-lg"
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700">Password</label>
+        <input
+          type="password"
+          required
+          className="w-full px-3 py-2 border rounded-lg"
+        />
+      </div>
+      <button
+        type="submit"
+        className="w-full hover:bg-green-500 text-white py-2 rounded font-medium bg-green-800">
+        Register
+      </button>
+    </form>
+  );
+}
 
 export default TelPages;
