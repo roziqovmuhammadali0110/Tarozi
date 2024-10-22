@@ -23,7 +23,7 @@ const KeepMountedModal = ({ open, onClose, rowData }) => {
           bgcolor: "background.paper",
           borderRadius: 2,
           outline: "none", // Modalning konturini olib tashlash
-          maxWidth: "500px", // Maximal kenglik
+          maxWidth: "490px", // Maximal kenglik
           width: "90%" // Mobil qurilmalar uchun kenglikni moslashtirish
         }}>
         <div>
@@ -40,18 +40,34 @@ const KeepMountedModal = ({ open, onClose, rowData }) => {
             className="font-semibold text-[18px] text-slate-900">
             Car Details
           </h2>
-          <p className="font-medium">Car Number: {rowData.carNumber}</p>
-          <p className="font-medium">Entry Time: {rowData.entryTime}</p>
-          <p className="font-medium">Exit Time: {rowData.exitTime}</p>
-          <p className="font-medium">Cargo weight: {rowData.cargoWeight}</p>
-          <p className="font-medium">Driver Name: {rowData.driverName}</p>
-          <p className="font-medium">Age: {rowData.age}</p>
+          <p className="font-medium">
+            Car Number:{" "}
+            <span className="text-red-700 ">{rowData.carNumber}</span>
+          </p>
+          <p className="font-medium">
+            Entry Time:{" "}
+            <span className="text-red-700 ">{rowData.entryTime}</span>
+          </p>
+          <p className="font-medium">
+            Exit Time: <span className="text-red-700 ">{rowData.exitTime}</span>
+          </p>
+          <p className="font-medium">
+            Cargo weight:{" "}
+            <span className="text-red-700 ">{rowData.cargoWeight}</span>
+          </p>
+          <p className="font-medium">
+            Driver Name:{" "}
+            <span className="text-red-700 ">{rowData.driverName}</span>
+          </p>
+          <p className="font-medium">
+            Age: <span className="text-red-700 ">{rowData.age}</span>
+          </p>
 
           {/* Rasmlar ko'rsatilmoqda */}
           <div className="flex flex-wrap gap-3">
             {rowData.images.map((imgSrc, index) => (
               <img
-                className="mt-2 rounded-md w-[150px] sm:w-[100px] md:w-[150px]"
+                className="mt-2 rounded-md w-[150px]"
                 key={index}
                 src={imgSrc}
                 alt={`Image ${index + 1}`}
