@@ -1,0 +1,22 @@
+{
+  "welcome": "Bizning ilovamizga xush kelibsiz",
+  "description": "Bu dunyodagi eng zo'r ilova!",
+  "login": "Kirish",
+  "register": "Ro'yxatdan o'tish",
+  "phone": "Telefon",
+  "password": "Parol",
+  "email": "Email",
+  "username": "Foydalanuvchi nomi",
+  "submit": "Kirish",
+  "registerSubmit": "Ro'yxatdan o'tish",
+  "switchToRegister": "Hisobingiz yo'qmi? Ro'yxatdan o'ting",
+  "switchToLogin": "Allaqachon hisobingiz bormi? Kirish",
+  "loginSuccess": "Kirish muvaffaqiyatli!",
+  "loginError": "Kirishda xato!",
+  "registerSuccess": "Ro'yxatdan o'tish muvaffaqiyatli!",
+  "registerError": "Ro'yxatdan o'tishda xato!",
+  "enterCode": "Kodni kiritish",
+  "placeholder": "Kodni kiriting",
+  "toSend": "Yuborish",
+  "invalidCode": "Kod noto'g'ri! Iltimos, to'g'ri kodni kiriting."
+}

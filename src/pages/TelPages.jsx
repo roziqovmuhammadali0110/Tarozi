@@ -1,26 +1,55 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Axiosni import qilish
+import axios from "axios";
+import uzFlag from "../assets/img/uzFlag.png";
+import ruFlag from "../assets/img/rusFlag.png";
+import { useTranslation } from "react-i18next";
+import "../i18n";
 
 function TelPages() {
   const [isLogin, setIsLogin] = useState(true);
+  const { t, i18n } = useTranslation();
+
+  const handleLanguageChange = (event) => {
+    i18n.changeLanguage(event.target.value);
+  };
 
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-gray-100"
       id="telPages">
-      <div className="bg-white p-8 rounded shadow-md w-96 m-2">
-        <h2 className="text-2xl font-bold mb-6 text-center">
-          {isLogin ? "Login" : "Register"}
-        </h2>
+      <div className="bg-white p-8 rounded-xl shadow-md w-96 m-2">
+        <div className="flex items-center justify-between">
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            {isLogin ? t("login") : t("register")}
+          </h2>
+          <div className="relative">
+            <select
+              onChange={handleLanguageChange}
+              className="w-24 bg-slate-100 rounded-md text-slate-700 font-medium p-1 appearance-none">
+              <option value="uz" className="p-1">
+                Uzb
+              </option>
+              <option value="ru" className="p-1">
+                Rus
+              </option>
+            </select>
+            <div className="absolute top-0 right-0 mt-1 mr-1 pointer-events-none">
+              <img
+                src={i18n.language === "uz" ? uzFlag : ruFlag}
+                alt="Flag"
+                className="w-5 h-5"
+              />
+            </div>
+          </div>
+        </div>
+
         {isLogin ? <LoginForm /> : <RegisterForm />}
         <div className="text-center mt-4">
           <button
             className="text-blue-500"
             onClick={() => setIsLogin(!isLogin)}>
-            {isLogin
-              ? "Don't have an account? Register"
-              : "Already have an account? Login"}
+            {isLogin ? t("switchToRegister") : t("switchToLogin")}
           </button>
         </div>
       </div>
@@ -30,33 +59,37 @@ function TelPages() {
 
 function LoginForm() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const response = await axios.post("https://api.example.com/login", {
-        phone,
+      const response = await axios.post("https://tarozi.mycoal.uz/auth/login", {
+        phoneNumber: phone,
         password
       });
-      setSuccess("Login successful!");
+      setSuccess(t("loginSuccess"));
       setError(null);
-      // Foydalanuvchi ma'lumotlarini saqlash (localStorage yoki konteks orqali)
       localStorage.setItem("user", JSON.stringify(response.data));
-      navigate("/code"); // Muvaffaqiyatli kirishdan so'ng sahifani o'zgartirish
+      navigate("/code");
     } catch (error) {
-      setError(error.response?.data.message || "Login failed!");
+      setError(error.response?.data.message || t("loginError"));
       setSuccess(null);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-4">
-        <label className="block text-gray-700">Phone</label>
+        <label className="block text-gray-700">{t("phone")}</label>
         <input
           type="text"
           value={phone}
@@ -66,7 +99,7 @@ function LoginForm() {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Password</label>
+        <label className="block text-gray-700">{t("password")}</label>
         <input
           type="password"
           value={password}
@@ -77,8 +110,9 @@ function LoginForm() {
       </div>
       <button
         type="submit"
-        className="w-full bg-slate-800 text-white py-2 rounded font-medium hover:bg-blue-600">
-        Login
+        className="w-full bg-slate-800 text-white py-2 rounded font-medium hover:bg-blue-600"
+        disabled={loading}>
+        {loading ? t("loading") : t("submit")}
       </button>
       {error && <div className="text-red-500">{error}</div>}
       {success && <div className="text-green-500">{success}</div>}
@@ -88,35 +122,42 @@ function LoginForm() {
 
 function RegisterForm() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const response = await axios.post("https://api.example.com/register", {
-        phone,
-        email,
-        username,
-        password
-      });
-      setSuccess("Registration successful!");
+      await axios
+        .post("https://tarozi.mycoal.uz/auth/register", {
+          phoneNumber: phone,
+          email,
+          username,
+          password
+        })
+        .then((res) => console.log(res, "SSSSSSSSSSSSSSSSSSSS"));
+      setSuccess(t("registerSuccess"));
       setError(null);
-      navigate("/code"); // Muvaffaqiyatli ro'yxatdan o'tishdan so'ng sahifani o'zgartirish
+      navigate("/code");
     } catch (error) {
-      setError(error.response?.data.message || "Registration failed!");
+      setError(error.response?.data.message || t("registerError"));
       setSuccess(null);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-4">
-        <label className="block text-gray-700">Phone</label>
+        <label className="block text-gray-700">{t("phone")}</label>
         <input
           type="text"
           value={phone}
@@ -126,7 +167,7 @@ function RegisterForm() {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Email</label>
+        <label className="block text-gray-700">{t("email")}</label>
         <input
           type="email"
           value={email}
@@ -136,7 +177,7 @@ function RegisterForm() {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Username</label>
+        <label className="block text-gray-700">{t("username")}</label>
         <input
           type="text"
           value={username}
@@ -146,7 +187,7 @@ function RegisterForm() {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Password</label>
+        <label className="block text-gray-700">{t("password")}</label>
         <input
           type="password"
           value={password}
@@ -157,8 +198,9 @@ function RegisterForm() {
       </div>
       <button
         type="submit"
-        className="w-full hover:bg-green-500 text-white py-2 rounded font-medium bg-green-800">
-        Register
+        className="w-full bg-slate-800 text-white py-2 rounded font-medium hover:bg-blue-600"
+        disabled={loading}>
+        {loading ? t("loading") : t("submit")}
       </button>
       {error && <div className="text-red-500">{error}</div>}
       {success && <div className="text-green-500">{success}</div>}
