@@ -6,6 +6,9 @@ import ruFlag from "../assets/img/rusFlag.png";
 import { useTranslation } from "react-i18next";
 import "../i18n";
 
+// URL manzillllllllll
+const API_URL = "https://tarozi.mycoal.uz";
+
 function TelPages() {
   const [isLogin, setIsLogin] = useState(true);
   const { t, i18n } = useTranslation();
@@ -70,7 +73,7 @@ function LoginForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("https://tarozi.mycoal.uz/auth/login", {
+      const response = await axios.post(`${API_URL}/auth/login`, {
         phoneNumber: phone.trim(),
         password: password.trim()
       });
@@ -135,7 +138,7 @@ function RegisterForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("https://tarozi.mycoal.uz/auth/register", {
+      await axios.post(`${API_URL}/auth/register`, {
         phoneNumber: phone.trim(),
         email: email.trim(),
         username: username.trim(),

@@ -42,14 +42,14 @@ const KeepMountedModal = ({ open, onClose, rowData }) => {
           </h2>
           <p className="font-medium">
             Car Number:{" "}
-            <span className="text-red-700 ">{rowData.carNumber}</span>
+            <span className="text-red-700 ">{rowData.vehicleNumber}</span>
           </p>
           <p className="font-medium">
             Entry Time:{" "}
-            <span className="text-red-700 ">{rowData.entryTime}</span>
+            <span className="text-red-700 ">{rowData.enterDate}</span>
           </p>
           <p className="font-medium">
-            Exit Time: <span className="text-red-700 ">{rowData.exitTime}</span>
+            Exit Time: <span className="text-red-700 ">{rowData.exitDate}</span>
           </p>
           <p className="font-medium">
             Cargo weight:{" "}

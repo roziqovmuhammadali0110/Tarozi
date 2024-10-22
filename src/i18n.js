@@ -17,8 +17,8 @@ i18n
   .use(initReactI18next) // react-i18next ni sozlash
   .init({
     resources,
-    lng: "ru", // Default til
-    fallbackLng: "ru", // Tillar mavjud bo'lmaganda foydalaniladigan til
+    lng: "uz", // Default til
+    fallbackLng: "uz", // Tillar mavjud bo'lmaganda foydalaniladigan til
     interpolation: {
       escapeValue: false // React bu xususiyatni avtomatik ravishda qo'llaydi
     }
