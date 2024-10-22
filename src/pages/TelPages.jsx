@@ -71,8 +71,8 @@ function LoginForm() {
     setLoading(true);
     try {
       const response = await axios.post("https://tarozi.mycoal.uz/auth/login", {
-        phoneNumber: phone,
-        password
+        phoneNumber: phone.trim(),
+        password: password.trim()
       });
       setSuccess(t("loginSuccess"));
       setError(null);
@@ -93,7 +93,7 @@ function LoginForm() {
         <input
           type="text"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(e) => setPhone(e.target.value.trim())}
           required
           className="w-full px-3 py-2 border rounded-lg"
         />
@@ -103,7 +103,7 @@ function LoginForm() {
         <input
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value.trim())}
           required
           className="w-full px-3 py-2 border rounded-lg"
         />
@@ -135,14 +135,12 @@ function RegisterForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios
-        .post("https://tarozi.mycoal.uz/auth/register", {
-          phoneNumber: phone,
-          email,
-          username,
-          password
-        })
-        .then((res) => console.log(res, "SSSSSSSSSSSSSSSSSSSS"));
+      await axios.post("https://tarozi.mycoal.uz/auth/register", {
+        phoneNumber: phone.trim(),
+        email: email.trim(),
+        username: username.trim(),
+        password: password.trim()
+      });
       setSuccess(t("registerSuccess"));
       setError(null);
       navigate("/code");
@@ -161,7 +159,7 @@ function RegisterForm() {
         <input
           type="text"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(e) => setPhone(e.target.value.trim())}
           required
           className="w-full px-3 py-2 border rounded-lg"
         />
@@ -171,7 +169,7 @@ function RegisterForm() {
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.trim())}
           required
           className="w-full px-3 py-2 border rounded-lg"
         />
@@ -181,7 +179,7 @@ function RegisterForm() {
         <input
           type="text"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value.trim())}
           required
           className="w-full px-3 py-2 border rounded-lg"
         />
@@ -191,7 +189,7 @@ function RegisterForm() {
         <input
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value.trim())}
           required
           className="w-full px-3 py-2 border rounded-lg"
         />
